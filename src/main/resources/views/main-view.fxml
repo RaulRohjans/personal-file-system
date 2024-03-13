@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane onKeyReleased="#onKeyRelease" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="mainViewRoot" fx:controller="com.rohjans.controllers.PFSController">
+  <top>
+    <VBox>
+      <MenuBar>
+        <Menu fx:id="ItemOption" text="Item">
+          <MenuItem onAction="#onNewItem" text="New" />
+          <MenuItem onAction="#onRenameItem" text="Rename" />
+          <MenuItem onAction="#onDeleteItem" text="Delete" />
+            <MenuItem onAction="#onFlattenFolder" text="Flatten" />
+            <MenuItem onAction="#onMoveFile" text="Move" />
+           <MenuItem onAction="#onDuplicateFile" text="Duplicate" />
+           <MenuItem onAction="#onLockUnlockFile" text="Lock/Unlock" />
+        </Menu>
+          <Menu fx:id="SearchOption" text="Search">
+              <MenuItem onAction="#onSearchByName" text="By Name" />
+              <MenuItem onAction="#onSearchByContent" text="By Content" />
+          </Menu>
+          <Menu fx:id="MetricsOption" >
+              <graphic>
+                  <Label onMouseClicked="#onMetrics" text="Metrics" />
+              </graphic>
+          </Menu>
+          <Menu fx:id="StorageOption" text="Storage">
+              <Menu text="Cleaning">
+                  <MenuItem onAction="#onCleanByDate" text="By Date" />
+                  <MenuItem onAction="#onCleanByImportance" text="By Importance" />
+              </Menu>
+              <Menu text="Management">
+                  <items>
+                      <MenuItem onAction="#onBackup" text="Backup" />
+                      <MenuItem onAction="#onRestore" text="Restore" />
+                  </items>
+              </Menu>
+          </Menu>
+          <Menu fx:id="confirmMoveOption">
+              <graphic>
+                  <Label onMouseClicked="#onConfirmMoveOption" text="Confirm Move" />
+              </graphic>
+          </Menu>
+          <Menu fx:id="cancelMoveOption">
+              <graphic>
+                  <Label onMouseClicked="#onCancelMoveOption" text="Cancel Move" />
+              </graphic>
+          </Menu>
+        <!-- Add more menus as needed -->
+      </MenuBar>
+    </VBox>
+  </top>
+  <center>
+    <TreeView fx:id="pfsTreeView" />
+  </center>
+   <bottom>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-padding: 0 6 0 6;" BorderPane.alignment="CENTER">
+        <buttons>
+          <Button mnemonicParsing="false" onAction="#onQuit" text="Quit" />
+        </buttons>
+      </ButtonBar>
+   </bottom>
+   <right>
+       <TabPane fx:id="itemInfoTabContainer" prefHeight="400.0" prefWidth="323.0" tabClosingPolicy="UNAVAILABLE"
+                BorderPane.alignment="CENTER">
+           <Tab text="Info">
+               <VBox>
+                   <HBox style="-fx-padding: 6;">
+                       <Label style="-fx-padding: 0 8 0 0;" text="Created:"/>
+                       <Label fx:id="lblInfoCreated"/>
+                   </HBox>
+                   <HBox style="-fx-padding: 6;">
+                       <Label style="-fx-padding: 0 8 0 0;" text="Last Edited:"/>
+                       <Label fx:id="lblInfoLastEdited"/>
+                   </HBox>
+                   <HBox style="-fx-padding: 6;">
+                       <Label style="-fx-padding: 0 8 0 0;" text="Change Counter:"/>
+                       <Label fx:id="lblInfoChangeCounter"/>
+                   </HBox>
+                   <VBox fx:id="infoFileContainer" style="-fx-padding: 0 8 0 8;">
+                       <HBox style="-fx-padding: 6;">
+                           <Label style="-fx-padding: 0 8 0 0;" text="Is Locked:"/>
+                           <Label fx:id="lblInfoIsLocked"/>
+                       </HBox>
+                       <HBox style="-fx-padding: 6;">
+                           <Label style="-fx-padding: 0 8 0 0;" text="Size (bytes):"/>
+                           <Label fx:id="lblInfoSize"/>
+                       </HBox>
+                       <HBox style="-fx-padding: 6;">
+                           <Label style="-fx-padding: 0 8 0 0;" text="Importance:"/>
+                           <Label fx:id="lblInfoImportance"/>
+                       </HBox>
+                   </VBox>
+               </VBox>
+           </Tab>
+           <Tab text="Content">
+               <VBox>
+                   <TextArea style="-fx-padding: 4;" fx:id="txtFileContent"/>
+                   <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-padding: 4;">
+                       <buttons>
+                           <Button mnemonicParsing="false" text="Save" onAction="#onSaveFileContent" />
+                       </buttons>
+                   </ButtonBar>
+               </VBox>
+           </Tab>
+       </TabPane>
+   </right>
+</BorderPane>
