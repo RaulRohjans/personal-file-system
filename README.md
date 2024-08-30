@@ -1,9 +1,38 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/YivFRH7G)
+# Personal File System
 
-# Projeto ER
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/52db5f19-5319-4127-8c5c-23621b3d2bab" alt="PFS Main Menu"/>
+    <img src="https://github.com/user-attachments/assets/4dc05bd4-4d24-42e3-9692-239262cb6875" alt="PFS Storage Graph"/>
+</p>
+
+## Overview
+Personal File System (PFS) is a JavaFX-based application designed to efficiently manage files and folder structures. 
+PFS leverages a data tree representation, making it user-friendly, and enabling easy navigation and interaction with files. Key functionalities include file operations like creation, movement, and editing, alongside unique features such as directory flattening and secured file access. This app also integrates a robust statistical component that provides insights into file handling metrics and storage utilization, presented through informative graphs.
+
+## Features List
+
+1. Visual Tree Representation: Utilizes a TreeView component for easy navigation across files and folders.
+2. Metadata Panel:
+    - Displays creation and modification dates, number of edits, file size, and importance level for selected files and folders.
+    - Provides a text editing tab for .txt and .csv files.
+3. File and Folder Operations:
+    - Create, move, rename, and delete files and folders.
+    - Flatten directories by moving all sub-folder files to the target folder and removing the empty directories.
+    - File-specific operations like lock/unlock access with a password, and concatenate multiple files into one.
+4. Search Functionality: Enables searching by file name or content through a unified search interface.
+5. Data Management:
+    - File deletion based on creation date or importance level.
+    - Backup and restore functionality to manage and secure data effectively.
+5. Statistical Insights:
+    - Displays a pie chart of storage usage for selected directories within the PFS.
+    - Offers metrics on file creation and edits, enhancing user awareness of storage practices.
+6. Security Features:
+    - Implements password-protected access to sensitive files using encryption.
+7. User Interface:
+    - Simple and intuitive layout with a comprehensive menu for all operations.
+    - Information panel on the right provides detailed insights into the selected item's metadata.
 
 ## Setting up for development
-
 ### 1. Set java version to 17
 The used java version for development is BellSoft Liberica 17.0.10, anything above this and JavaFX will not be able to be imported, since it is now a separate package and is no lunger bundled in the java devkit.
 
